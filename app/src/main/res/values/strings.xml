@@ -19,6 +19,11 @@
     <string name="transaction_count_format">%d</string>
     <string name="empty_dashboard_message">لا توجد حسابات حتى الآن. اضغط على + للإضافة.</string>
 
+    <!-- Account categories -->
+    <string name="category_general">عام</string>
+    <string name="category_customer">عملاء</string>
+    <string name="category_supplier">موردين</string>
+
     <!-- Nav header -->
     <string name="nav_header_title">Smart Accounts</string>
     <string name="nav_header_subtitle">دفتر حسابات ذكي</string>

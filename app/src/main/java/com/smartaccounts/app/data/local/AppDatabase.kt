@@ -12,7 +12,7 @@ import com.smartaccounts.app.data.local.entity.TransactionEntity
 
 @Database(
     entities = [AccountEntity::class, TransactionEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -30,7 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "smart_accounts.db"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration().build().also { INSTANCE = it }
             }
     }
 }

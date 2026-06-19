@@ -17,6 +17,10 @@
     <string name="transaction_count_format">%d</string>
     <string name="empty_dashboard_message">No accounts yet. Tap + to add one.</string>
 
+    <string name="category_general">General</string>
+    <string name="category_customer">Customers</string>
+    <string name="category_supplier">Suppliers</string>
+
     <string name="nav_header_title">Smart Accounts</string>
     <string name="nav_header_subtitle">Smart ledger</string>
 

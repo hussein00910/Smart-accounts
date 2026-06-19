@@ -32,8 +32,10 @@
         android:padding="@dimen/spacing_l">
 
         <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="@dimen/spacing_l"
+            android:background="@drawable/badge_circle_background"
             android:contentDescription="@null"
             android:src="@drawable/ic_restore" />
 

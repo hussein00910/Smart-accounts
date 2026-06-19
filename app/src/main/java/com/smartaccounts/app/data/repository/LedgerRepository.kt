@@ -2,15 +2,16 @@ package com.smartaccounts.app.data.repository
 
 import com.smartaccounts.app.data.local.model.AccountWithStats
 import com.smartaccounts.app.data.local.model.SummaryTotalsRow
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.model.Currency
 import com.smartaccounts.app.domain.model.TransactionType
 import kotlinx.coroutines.flow.Flow
 
 interface LedgerRepository {
 
-    fun observeAccountsWithStats(): Flow<List<AccountWithStats>>
+    fun observeAccountsWithStats(category: AccountCategory = AccountCategory.GENERAL): Flow<List<AccountWithStats>>
 
-    fun observeSummaryTotals(): Flow<SummaryTotalsRow>
+    fun observeSummaryTotals(category: AccountCategory = AccountCategory.GENERAL): Flow<SummaryTotalsRow>
 
     suspend fun getAllAccountNames(): List<String>
 
@@ -21,6 +22,7 @@ interface LedgerRepository {
         currency: Currency,
         date: Long,
         details: String?,
-        photoUri: String?
+        photoUri: String?,
+        category: AccountCategory = AccountCategory.GENERAL
     ): Long
 }

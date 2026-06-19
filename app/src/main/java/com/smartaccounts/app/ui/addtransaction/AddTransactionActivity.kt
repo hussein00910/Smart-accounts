@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.smartaccounts.app.R
 import com.smartaccounts.app.databinding.ActivityAddTransactionBinding
 import com.smartaccounts.app.di.ServiceLocator
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.model.Currency
 import com.smartaccounts.app.domain.model.TransactionType
 import com.smartaccounts.app.domain.util.DateFormats
@@ -30,6 +31,10 @@ class AddTransactionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTransactionBinding
     private var selectedDate: Long = System.currentTimeMillis()
     private var photoUri: Uri? = null
+    private val category: AccountCategory by lazy {
+        intent.getStringExtra(EXTRA_CATEGORY)?.let { runCatching { AccountCategory.valueOf(it) }.getOrNull() }
+            ?: AccountCategory.GENERAL
+    }
 
     private val viewModel: AddTransactionViewModel by viewModels {
         AddTransactionViewModelFactory(ServiceLocator.provideLedgerRepository(applicationContext))
@@ -122,7 +127,8 @@ class AddTransactionActivity : AppCompatActivity() {
             currency = currency,
             date = selectedDate,
             details = binding.inputDetails.text.toString(),
-            photoUri = photoUri?.toString()
+            photoUri = photoUri?.toString(),
+            category = category
         )
     }
 
@@ -132,18 +138,28 @@ class AddTransactionActivity : AppCompatActivity() {
                 Snackbar.make(binding.root, R.string.message_transaction_saved, Snackbar.LENGTH_SHORT).show()
                 finish()
             }
-            is AddTransactionViewModel.Event.Error -> when (event.field) {
-                AddTransactionViewModel.ErrorField.NAME ->
-                    binding.layoutName.error = getString(R.string.error_name_required)
-                AddTransactionViewModel.ErrorField.AMOUNT_REQUIRED ->
-                    binding.layoutAmount.error = getString(R.string.error_amount_required)
-                AddTransactionViewModel.ErrorField.AMOUNT_INVALID ->
-                    binding.layoutAmount.error = getString(R.string.error_amount_invalid)
+            is AddTransactionViewModel.Event.Error -> {
+                val message = when (event.field) {
+                    AddTransactionViewModel.ErrorField.NAME -> {
+                        binding.layoutName.error = getString(R.string.error_name_required)
+                        R.string.error_name_required
+                    }
+                    AddTransactionViewModel.ErrorField.AMOUNT_REQUIRED -> {
+                        binding.layoutAmount.error = getString(R.string.error_amount_required)
+                        R.string.error_amount_required
+                    }
+                    AddTransactionViewModel.ErrorField.AMOUNT_INVALID -> {
+                        binding.layoutAmount.error = getString(R.string.error_amount_invalid)
+                        R.string.error_amount_invalid
+                    }
+                }
+                Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
             }
         }
     }
 
     companion object {
         const val EXTRA_PRESET_ACCOUNT_NAME = "extra_preset_account_name"
+        const val EXTRA_CATEGORY = "extra_category"
     }
 }

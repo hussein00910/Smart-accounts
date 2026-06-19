@@ -6,6 +6,7 @@ import com.smartaccounts.app.data.local.entity.AccountEntity
 import com.smartaccounts.app.data.local.entity.TransactionEntity
 import com.smartaccounts.app.data.local.model.AccountWithStats
 import com.smartaccounts.app.data.local.model.SummaryTotalsRow
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.model.Currency
 import com.smartaccounts.app.domain.model.TransactionType
 import kotlinx.coroutines.flow.Flow
@@ -15,11 +16,11 @@ class LedgerRepositoryImpl(private val database: AppDatabase) : LedgerRepository
     private val accountDao = database.accountDao()
     private val transactionDao = database.transactionDao()
 
-    override fun observeAccountsWithStats(): Flow<List<AccountWithStats>> =
-        accountDao.observeAccountsWithStats()
+    override fun observeAccountsWithStats(category: AccountCategory): Flow<List<AccountWithStats>> =
+        accountDao.observeAccountsWithStats(category)
 
-    override fun observeSummaryTotals(): Flow<SummaryTotalsRow> =
-        accountDao.observeSummaryTotals()
+    override fun observeSummaryTotals(category: AccountCategory): Flow<SummaryTotalsRow> =
+        accountDao.observeSummaryTotals(category)
 
     override suspend fun getAllAccountNames(): List<String> =
         accountDao.getAllAccountNames()
@@ -31,11 +32,12 @@ class LedgerRepositoryImpl(private val database: AppDatabase) : LedgerRepository
         currency: Currency,
         date: Long,
         details: String?,
-        photoUri: String?
+        photoUri: String?,
+        category: AccountCategory
     ): Long = database.withTransaction {
         val trimmedName = accountName.trim()
         val accountId = accountDao.findByName(trimmedName)?.id
-            ?: accountDao.insert(AccountEntity(name = trimmedName))
+            ?: accountDao.insert(AccountEntity(name = trimmedName, category = category))
 
         transactionDao.insert(
             TransactionEntity(

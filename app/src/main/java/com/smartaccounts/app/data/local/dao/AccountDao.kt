@@ -8,6 +8,7 @@ import androidx.room.Update
 import com.smartaccounts.app.data.local.entity.AccountEntity
 import com.smartaccounts.app.data.local.model.AccountWithStats
 import com.smartaccounts.app.data.local.model.SummaryTotalsRow
+import com.smartaccounts.app.domain.model.AccountCategory
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -57,11 +58,12 @@ interface AccountDao {
           ), 0.0)         AS netLocalBalance
         FROM accounts a
         LEFT JOIN transactions t ON t.accountId = a.id
+        WHERE a.category = :category
         GROUP BY a.id
         ORDER BY a.name COLLATE NOCASE
         """
     )
-    fun observeAccountsWithStats(): Flow<List<AccountWithStats>>
+    fun observeAccountsWithStats(category: AccountCategory): Flow<List<AccountWithStats>>
 
     /**
      * "عليك" (you owe) = sum of all positive (creditor) per-account balances.
@@ -83,9 +85,10 @@ interface AccountDao {
             ), 0.0) AS net
           FROM accounts a
           LEFT JOIN transactions t ON t.accountId = a.id
+          WHERE a.category = :category
           GROUP BY a.id
         )
         """
     )
-    fun observeSummaryTotals(): Flow<SummaryTotalsRow>
+    fun observeSummaryTotals(category: AccountCategory): Flow<SummaryTotalsRow>
 }

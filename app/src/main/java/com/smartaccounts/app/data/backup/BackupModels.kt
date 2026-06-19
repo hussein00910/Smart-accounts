@@ -1,5 +1,6 @@
 package com.smartaccounts.app.data.backup
 
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.model.Currency
 import com.smartaccounts.app.domain.model.TransactionType
 import kotlinx.serialization.Serializable
@@ -9,7 +10,8 @@ data class BackupAccount(
     val id: Long,
     val name: String,
     val sortOrder: Int,
-    val createdAt: Long
+    val createdAt: Long,
+    val category: AccountCategory = AccountCategory.GENERAL
 )
 
 @Serializable

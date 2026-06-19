@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.smartaccounts.app.data.repository.LedgerRepository
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.model.Currency
 import com.smartaccounts.app.domain.model.TransactionType
+import com.smartaccounts.app.domain.util.AmountInputParser
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,7 +35,8 @@ class AddTransactionViewModel(private val repository: LedgerRepository) : ViewMo
         currency: Currency,
         date: Long,
         details: String?,
-        photoUri: String?
+        photoUri: String?,
+        category: AccountCategory = AccountCategory.GENERAL
     ) {
         if (name.isBlank()) {
             events.trySend(Event.Error(ErrorField.NAME))
@@ -43,7 +46,7 @@ class AddTransactionViewModel(private val repository: LedgerRepository) : ViewMo
             events.trySend(Event.Error(ErrorField.AMOUNT_REQUIRED))
             return
         }
-        val amount = amountText.toDoubleOrNull()
+        val amount = AmountInputParser.parse(amountText)
         if (amount == null || amount <= 0) {
             events.trySend(Event.Error(ErrorField.AMOUNT_INVALID))
             return
@@ -56,7 +59,8 @@ class AddTransactionViewModel(private val repository: LedgerRepository) : ViewMo
                 currency = currency,
                 date = date,
                 details = details?.takeIf { it.isNotBlank() },
-                photoUri = photoUri
+                photoUri = photoUri,
+                category = category
             )
             events.send(Event.Saved)
         }

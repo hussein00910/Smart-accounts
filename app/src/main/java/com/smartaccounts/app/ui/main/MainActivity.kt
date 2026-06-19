@@ -11,11 +11,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.tabs.TabLayout
 import com.smartaccounts.app.R
 import com.smartaccounts.app.data.local.model.AccountWithStats
 import com.smartaccounts.app.data.prefs.AppPreferences
 import com.smartaccounts.app.databinding.ActivityMainBinding
 import com.smartaccounts.app.di.ServiceLocator
+import com.smartaccounts.app.domain.model.AccountCategory
 import com.smartaccounts.app.domain.util.MoneyFormatter
 import com.smartaccounts.app.ui.addtransaction.AddTransactionActivity
 import com.smartaccounts.app.ui.backup.BackupActivity
@@ -27,6 +29,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var selectedCategory: AccountCategory = AccountCategory.GENERAL
 
     private val viewModel: DashboardViewModel by viewModels {
         DashboardViewModelFactory(ServiceLocator.provideLedgerRepository(applicationContext))
@@ -53,6 +56,15 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout.close()
             true
         }
+
+        binding.tabLayoutCategory.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                selectedCategory = AccountCategory.entries[tab.position]
+                viewModel.onCategorySelected(selectedCategory)
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) = Unit
+            override fun onTabReselected(tab: TabLayout.Tab) = Unit
+        })
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -107,6 +119,7 @@ class MainActivity : AppCompatActivity() {
     private fun openAddTransaction(account: AccountWithStats?) {
         val intent = Intent(this, AddTransactionActivity::class.java)
         account?.let { intent.putExtra(AddTransactionActivity.EXTRA_PRESET_ACCOUNT_NAME, it.name) }
+        intent.putExtra(AddTransactionActivity.EXTRA_CATEGORY, selectedCategory.name)
         startActivity(intent)
     }
 

@@ -23,7 +23,7 @@ class BackupRepositoryImpl(
         val payload = BackupPayload(
             exportedAt = System.currentTimeMillis(),
             accounts = accounts.map {
-                BackupAccount(id = it.id, name = it.name, sortOrder = it.sortOrder, createdAt = it.createdAt)
+                BackupAccount(id = it.id, name = it.name, sortOrder = it.sortOrder, createdAt = it.createdAt, category = it.category)
             },
             transactions = transactions.map {
                 BackupTransaction(
@@ -48,7 +48,7 @@ class BackupRepositoryImpl(
             database.clearAllTables()
             database.accountDao().insertAll(
                 payload.accounts.map {
-                    AccountEntity(id = it.id, name = it.name, sortOrder = it.sortOrder, createdAt = it.createdAt)
+                    AccountEntity(id = it.id, name = it.name, sortOrder = it.sortOrder, createdAt = it.createdAt, category = it.category)
                 }
             )
             database.transactionDao().insertAll(

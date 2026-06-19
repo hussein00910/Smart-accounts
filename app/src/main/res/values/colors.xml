@@ -14,6 +14,7 @@
     <color name="divider">#E0E0E0</color>
     <color name="background_dark">#121212</color>
     <color name="surface_dark">#1E1E1E</color>
+    <color name="tab_text_on_primary">#B3FFFFFF</color>
 
     <!-- Accent palette for distinct icon "landmarks" across drawer/settings -->
     <color name="accent_pink">#E91E63</color>
