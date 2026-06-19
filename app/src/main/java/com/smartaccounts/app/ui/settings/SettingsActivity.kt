@@ -26,16 +26,16 @@ class SettingsActivity : AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener { finish() }
 
         val items = listOf(
-            SettingsItem(ID_CURRENCIES, R.string.settings_currencies, R.drawable.ic_currency),
-            SettingsItem(ID_SECURITY, R.string.settings_security, R.drawable.ic_security),
-            SettingsItem(ID_AUTO_BACKUP, R.string.settings_auto_backup, R.drawable.ic_backup),
-            SettingsItem(ID_REMINDERS, R.string.settings_reminders, R.drawable.ic_notifications),
-            SettingsItem(ID_PRINTING, R.string.settings_printing, R.drawable.ic_pdf),
-            SettingsItem(ID_APPEARANCE, R.string.settings_appearance, R.drawable.ic_appearance),
-            SettingsItem(ID_FONTS, R.string.settings_fonts, R.drawable.ic_font),
-            SettingsItem(ID_MANAGE_ACCOUNTS, R.string.settings_manage_accounts, R.drawable.ic_accounts),
-            SettingsItem(ID_EXPORT_DATA, R.string.settings_export_data, R.drawable.ic_export),
-            SettingsItem(ID_RESET_DATA, R.string.settings_reset_data, R.drawable.ic_reset)
+            SettingsItem(ID_CURRENCIES, R.string.settings_currencies, R.drawable.ic_currency, R.color.credit_green),
+            SettingsItem(ID_SECURITY, R.string.settings_security, R.drawable.ic_security, R.color.icon_gold),
+            SettingsItem(ID_AUTO_BACKUP, R.string.settings_auto_backup, R.drawable.ic_backup, R.color.icon_teal),
+            SettingsItem(ID_REMINDERS, R.string.settings_reminders, R.drawable.ic_notifications, R.color.icon_orange),
+            SettingsItem(ID_PRINTING, R.string.settings_printing, R.drawable.ic_pdf, R.color.debit_red),
+            SettingsItem(ID_APPEARANCE, R.string.settings_appearance, R.drawable.ic_appearance, R.color.icon_purple),
+            SettingsItem(ID_FONTS, R.string.settings_fonts, R.drawable.ic_font, R.color.brand_primary),
+            SettingsItem(ID_MANAGE_ACCOUNTS, R.string.settings_manage_accounts, R.drawable.ic_accounts, R.color.badge_blue),
+            SettingsItem(ID_EXPORT_DATA, R.string.settings_export_data, R.drawable.ic_export, R.color.drive_green),
+            SettingsItem(ID_RESET_DATA, R.string.settings_reset_data, R.drawable.ic_reset, R.color.debit_red)
         )
 
         binding.recyclerViewSettings.layoutManager = LinearLayoutManager(this)

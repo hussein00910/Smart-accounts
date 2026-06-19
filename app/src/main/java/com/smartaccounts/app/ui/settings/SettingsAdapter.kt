@@ -2,6 +2,7 @@ package com.smartaccounts.app.ui.settings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.smartaccounts.app.databinding.ItemSettingsRowBinding
 
@@ -24,6 +25,7 @@ class SettingsAdapter(
     inner class ViewHolder(private val binding: ItemSettingsRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SettingsItem) {
             binding.imageIcon.setImageResource(item.iconRes)
+            binding.imageIcon.setColorFilter(ContextCompat.getColor(binding.root.context, item.tintColorRes))
             binding.textTitle.setText(item.titleRes)
             binding.root.setOnClickListener { onItemClick(item) }
         }

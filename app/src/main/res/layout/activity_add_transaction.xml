@@ -39,7 +39,8 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/label_name">
+                android:hint="@string/label_name"
+                app:boxStrokeColor="@color/text_field_stroke_color">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/inputName"
@@ -55,7 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_m"
-                android:hint="@string/label_amount">
+                android:hint="@string/label_amount"
+                app:boxStrokeColor="@color/text_field_stroke_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputAmount"
@@ -70,7 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_m"
-                android:hint="@string/label_details">
+                android:hint="@string/label_details"
+                app:boxStrokeColor="@color/text_field_stroke_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputDetails"
@@ -88,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_m"
                 android:hint="@string/label_date"
+                app:boxStrokeColor="@color/text_field_stroke_color"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/ic_calendar">
 
@@ -137,6 +141,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/radio_button_tint"
                     android:text="@string/currency_sar" />
 
                 <RadioButton
@@ -144,6 +149,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:buttonTint="@color/radio_button_tint"
                     android:text="@string/currency_usd" />
 
                 <RadioButton
@@ -152,6 +158,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
+                    android:buttonTint="@color/radio_button_tint"
                     android:text="@string/currency_local" />
 
             </RadioGroup>
@@ -183,7 +190,8 @@
             android:layout_marginEnd="@dimen/spacing_s"
             android:text="@string/button_credit"
             app:icon="@drawable/ic_arrow_up"
-            app:backgroundTint="@color/credit_green" />
+            app:iconTint="@color/credit_green"
+            app:backgroundTint="@color/brand_primary" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonDebit"
@@ -193,7 +201,8 @@
             android:layout_marginStart="@dimen/spacing_s"
             android:text="@string/button_debit"
             app:icon="@drawable/ic_arrow_down"
-            app:backgroundTint="@color/debit_red" />
+            app:iconTint="@color/debit_red"
+            app:backgroundTint="@color/brand_primary" />
 
     </LinearLayout>
 

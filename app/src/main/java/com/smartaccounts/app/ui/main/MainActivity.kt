@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     private fun render(state: DashboardUiState) {
         adapter.submitList(state.accounts)
         val isEmpty = state.accounts.isEmpty()
-        binding.textEmptyState.visibility = if (isEmpty) View.VISIBLE else View.GONE
+        binding.emptyStateContainer.visibility = if (isEmpty) View.VISIBLE else View.GONE
         binding.recyclerViewAccounts.visibility = if (isEmpty) View.GONE else View.VISIBLE
         binding.bottomSummary.textYouOwe.text = MoneyFormatter.format(state.totalYouOwe)
         binding.bottomSummary.textOwedToYou.text = MoneyFormatter.format(state.totalOwedToYou)

@@ -38,20 +38,37 @@
             app:layout_constraintBottom_toTopOf="@id/bottomSummary"
             tools:listitem="@layout/item_account_row" />
 
-        <TextView
-            android:id="@+id/textEmptyState"
+        <LinearLayout
+            android:id="@+id/emptyStateContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_l"
             android:layout_marginEnd="@dimen/spacing_l"
+            android:orientation="vertical"
             android:gravity="center"
-            android:text="@string/empty_dashboard_message"
-            android:textColor="@color/text_secondary"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/recyclerViewAccounts"
-            app:layout_constraintBottom_toBottomOf="@id/recyclerViewAccounts" />
+            app:layout_constraintBottom_toBottomOf="@id/recyclerViewAccounts">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_accounts"
+                android:contentDescription="@null"
+                app:tint="@color/badge_blue" />
+
+            <TextView
+                android:id="@+id/textEmptyState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_m"
+                android:gravity="center"
+                android:text="@string/empty_dashboard_message"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
 
         <include
             android:id="@+id/bottomSummary"
@@ -80,6 +97,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemIconTint="@null"
+        app:itemIconPadding="@dimen/spacing_m"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
 
