@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Accounts</string>
+
+    <!-- Currencies -->
+    <string name="currency_local">محلي</string>
+    <string name="currency_sar">سعودي</string>
+    <string name="currency_usd">دولار</string>
+
+    <!-- Dashboard -->
+    <string name="action_search">بحث</string>
+    <string name="search_hint">بحث عن اسم…</string>
+    <string name="action_notifications">الإشعارات</string>
+    <string name="action_sort">ترتيب</string>
+    <string name="label_you_owe">عليك</string>
+    <string name="label_owed_to_you">لك</string>
+    <string name="content_description_add">إضافة</string>
+    <string name="content_description_quick_add">إضافة سريعة</string>
+    <string name="transaction_count_format">%d</string>
+    <string name="empty_dashboard_message">لا توجد حسابات حتى الآن. اضغط على + للإضافة.</string>
+
+    <!-- Nav header -->
+    <string name="nav_header_title">Smart Accounts</string>
+    <string name="nav_header_subtitle">دفتر حسابات ذكي</string>
+
+    <!-- Drawer menu -->
+    <string name="drawer_add_transaction">إضافة مبلغ</string>
+    <string name="drawer_report_general">تقرير عام</string>
+    <string name="drawer_report_by_date">تقرير حسب التاريخ</string>
+    <string name="drawer_report_by_account">تقرير حسب العميل</string>
+    <string name="drawer_report_debts">تقرير الديون</string>
+    <string name="drawer_report_balances">تقرير الأرصدة</string>
+    <string name="drawer_auto_recurrence">التكرار التلقائي</string>
+    <string name="drawer_backup">حفظ نسخة إحتياطية</string>
+    <string name="drawer_restore">إسترجاع قاعدة البيانات</string>
+    <string name="drawer_google_drive">جوجل درايف</string>
+    <string name="drawer_settings">إعدادات</string>
+    <string name="drawer_contact_support">للتواصل والدعم</string>
+    <string name="drawer_about">حول البرنامج</string>
+    <string name="drawer_share">مشاركة البرنامج</string>
+    <string name="drawer_exit">خروج</string>
+
+    <!-- Add transaction -->
+    <string name="title_add_transaction">إضافة معاملة</string>
+    <string name="label_name">الاسم</string>
+    <string name="label_amount">المبلغ</string>
+    <string name="label_details">التفاصيل (اختياري)</string>
+    <string name="label_date">التاريخ</string>
+    <string name="label_currency">العملة</string>
+    <string name="content_description_camera">إضافة صورة</string>
+    <string name="content_description_pdf">تصدير PDF</string>
+    <string name="button_credit">له</string>
+    <string name="button_debit">عليه</string>
+    <string name="error_name_required">يرجى إدخال الاسم</string>
+    <string name="error_amount_required">يرجى إدخال المبلغ</string>
+    <string name="error_amount_invalid">المبلغ غير صحيح</string>
+    <string name="message_transaction_saved">تم حفظ المعاملة بنجاح</string>
+
+    <!-- Settings -->
+    <string name="title_settings">إعدادات</string>
+    <string name="action_toggle_language">English</string>
+    <string name="settings_currencies">العملات</string>
+    <string name="settings_security">الأمان</string>
+    <string name="settings_auto_backup">النسخ الاحتياطي التلقائي</string>
+    <string name="settings_reminders">التذكيرات</string>
+    <string name="settings_printing">الطباعة</string>
+    <string name="settings_appearance">المظهر</string>
+    <string name="settings_fonts">الخطوط</string>
+    <string name="settings_manage_accounts">إدارة الحسابات</string>
+    <string name="settings_export_data">تصدير البيانات</string>
+    <string name="settings_reset_data">إعادة تعيين البيانات</string>
+
+    <!-- Currencies screen -->
+    <string name="title_currencies">العملات</string>
+    <string name="currencies_rename_hint">اسم العرض</string>
+    <string name="currencies_rename_local_title">إعادة تسمية العملة المحلية</string>
+    <string name="action_save">حفظ</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_ok">موافق</string>
+
+    <!-- Backup / Restore -->
+    <string name="title_backup">حفظ نسخة إحتياطية</string>
+    <string name="title_restore">إسترجاع قاعدة البيانات</string>
+    <string name="button_export_backup">تصدير نسخة احتياطية</string>
+    <string name="button_restore_backup">اختيار ملف للاسترجاع</string>
+    <string name="message_backup_success">تم حفظ النسخة الاحتياطية بنجاح</string>
+    <string name="message_backup_failed">فشل حفظ النسخة الاحتياطية</string>
+    <string name="message_restore_success">تم استرجاع البيانات بنجاح</string>
+    <string name="message_restore_failed">فشل استرجاع البيانات</string>
+    <string name="message_restore_warning">سيتم استبدال جميع البيانات الحالية بالبيانات المسترجعة. هل تريد الاستمرار؟</string>
+
+    <!-- Coming soon -->
+    <string name="title_coming_soon">قريباً</string>
+    <string name="message_coming_soon">هذه الميزة قيد التطوير وستتوفر قريباً</string>
+
+    <!-- Common -->
+    <string name="action_back">رجوع</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_primary">#3949AB</color>
+    <color name="brand_primary_dark">#2C3690</color>
+    <color name="credit_green">#2E7D32</color>
+    <color name="debit_red">#C62828</color>
+    <color name="badge_blue">#1E88E5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="background_light">#F5F5F7</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#6B6B6B</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+</resources>

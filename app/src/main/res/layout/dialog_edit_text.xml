@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutInput"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_l"
+    android:layout_marginEnd="@dimen/spacing_l"
+    android:layout_marginTop="@dimen/spacing_s"
+    android:hint="@string/currencies_rename_hint">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.google.android.material.textfield.TextInputLayout>
