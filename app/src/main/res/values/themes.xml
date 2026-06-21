@@ -1,51 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.SmartAccounts" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Primary colors -->
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorPrimaryVariant">@color/brand_primary_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        
-        <!-- Secondary colors -->
-        <item name="colorSecondary">@color/accent_teal</item>
+        <item name="colorSecondary">@color/badge_blue</item>
         <item name="colorOnSecondary">@color/white</item>
-        
-        <!-- Tertiary colors -->
-        <item name="colorTertiary">@color/accent_purple</item>
-        <item name="colorOnTertiary">@color/white</item>
-        
-        <!-- Status bar and navigation -->
         <item name="android:statusBarColor">@color/brand_primary_dark</item>
-        <item name="android:navigationBarColor">@color/white</item>
-        
-        <!-- Background colors -->
         <item name="android:windowBackground">@color/background_light</item>
         <item name="android:colorBackground">@color/background_light</item>
-        
-        <!-- Text colors -->
-        <item name="android:textColorPrimary">@color/text_primary</item>
-        <item name="android:textColorSecondary">@color/text_secondary</item>
-        
-        <!-- Material3 specific -->
-        <item name="colorError">@color/danger_500</item>
-        <item name="colorOnError">@color/white</item>
-        
-        <!-- Window -->
-        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.SmartAccounts.NoActionBar" parent="Theme.SmartAccounts" />
-    
-    <!-- Custom button style -->
-    <style name="Widget.SmartAccounts.Button" parent="Widget.Material3.Button.ElevatedButton">
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@color/brand_primary</item>
-        <item name="cornerRadius">12dp</item>
-    </style>
-    
-    <!-- Card style -->
-    <style name="Widget.SmartAccounts.CardView" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardElevation">4dp</item>
-        <item name="cardCornerRadius">12dp</item>
-    </style>
 </resources>

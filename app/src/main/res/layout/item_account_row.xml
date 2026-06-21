@@ -1,105 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="8dp"
-    android:elevation="2dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="12dp">
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/spacing_m"
+    android:paddingEnd="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_s"
+    android:paddingBottom="@dimen/spacing_s">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageArrow"
+        android:layout_width="@dimen/row_icon_size"
+        android:layout_height="@dimen/row_icon_size"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@drawable/ic_arrow_up" />
+
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:paddingStart="@dimen/spacing_m"
-        android:paddingEnd="@dimen/spacing_m"
-        android:paddingTop="@dimen/spacing_m"
-        android:paddingBottom="@dimen/spacing_m">
+        android:layout_marginStart="@dimen/spacing_s"
+        android:textSize="@dimen/text_size_amount"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imageArrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="-26,124" />
 
-        <!-- Icon Circle Background -->
-        <FrameLayout
-            android:id="@+id/iconBackground"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/icon_circle_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginEnd="@dimen/spacing_s"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/text_primary"
+        app:layout_constraintStart_toEndOf="@id/textAmount"
+        app:layout_constraintEnd_toStartOf="@id/textCount"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="علي حسين" />
 
-            <ImageView
-                android:id="@+id/imageArrow"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:tint="@color/white"
-                tools:src="@drawable/ic_arrow_up" />
+    <TextView
+        android:id="@+id/textCount"
+        android:layout_width="@dimen/badge_size"
+        android:layout_height="@dimen/badge_size"
+        android:background="@drawable/badge_circle_background"
+        android:gravity="center"
+        android:textColor="@color/brand_primary_dark"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/buttonQuickAdd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="3" />
 
-        </FrameLayout>
+    <ImageButton
+        android:id="@+id/buttonQuickAdd"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/content_description_quick_add"
+        android:src="@drawable/ic_add"
+        app:tint="@color/brand_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- Amount -->
-        <TextView
-            android:id="@+id/textAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_m"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            app:layout_constraintStart_toEndOf="@id/iconBackground"
-            app:layout_constraintTop_toTopOf="@id/iconBackground"
-            app:layout_constraintBottom_toBottomOf="@id/iconBackground"
-            tools:text="-26,124" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- Account Name -->
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_m"
-            android:layout_marginEnd="@dimen/spacing_s"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            app:layout_constraintStart_toEndOf="@id/textAmount"
-            app:layout_constraintEnd_toStartOf="@id/textCount"
-            app:layout_constraintTop_toTopOf="@id/textAmount"
-            app:layout_constraintBottom_toBottomOf="@id/textAmount"
-            tools:text="علي حسين" />
-
-        <!-- Transaction Count Badge -->
-        <TextView
-            android:id="@+id/textCount"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/badge_circle_background"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/buttonQuickAdd"
-            app:layout_constraintTop_toTopOf="@id/iconBackground"
-            app:layout_constraintBottom_toBottomOf="@id/iconBackground"
-            android:layout_marginEnd="@dimen/spacing_s"
-            tools:text="3" />
-
-        <!-- Quick Add Button -->
-        <ImageButton
-            android:id="@+id/buttonQuickAdd"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/content_description_quick_add"
-            android:src="@drawable/ic_add"
-            android:scaleType="centerInside"
-            app:tint="@color/brand_primary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iconBackground"
-            app:layout_constraintBottom_toBottomOf="@id/iconBackground" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

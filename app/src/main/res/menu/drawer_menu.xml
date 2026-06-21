@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/drawer_add_transaction"
+        android:title="@string/drawer_add_transaction"
+        android:icon="@drawable/ic_add" />
+
+    <item
+        android:id="@+id/drawer_report_general"
+        android:title="@string/drawer_report_general"
+        android:icon="@drawable/ic_report" />
+
+    <item
+        android:id="@+id/drawer_report_by_date"
+        android:title="@string/drawer_report_by_date"
+        android:icon="@drawable/ic_report" />
+
+    <item
+        android:id="@+id/drawer_report_by_account"
+        android:title="@string/drawer_report_by_account"
+        android:icon="@drawable/ic_report" />
+
+    <item
+        android:id="@+id/drawer_report_debts"
+        android:title="@string/drawer_report_debts"
+        android:icon="@drawable/ic_report" />
+
+    <item
+        android:id="@+id/drawer_report_balances"
+        android:title="@string/drawer_report_balances"
+        android:icon="@drawable/ic_report" />
+
+    <item
+        android:id="@+id/drawer_auto_recurrence"
+        android:title="@string/drawer_auto_recurrence"
+        android:icon="@drawable/ic_recurrence" />
+
+    <item
+        android:id="@+id/drawer_backup"
+        android:title="@string/drawer_backup"
+        android:icon="@drawable/ic_backup" />
+
+    <item
+        android:id="@+id/drawer_restore"
+        android:title="@string/drawer_restore"
+        android:icon="@drawable/ic_restore" />
+
+    <item
+        android:id="@+id/drawer_google_drive"
+        android:title="@string/drawer_google_drive"
+        android:icon="@drawable/ic_drive" />
+
+    <item
+        android:id="@+id/drawer_settings"
+        android:title="@string/drawer_settings"
+        android:icon="@drawable/ic_settings" />
+
+    <item
+        android:id="@+id/drawer_contact_support"
+        android:title="@string/drawer_contact_support"
+        android:icon="@drawable/ic_support" />
+
+    <item
+        android:id="@+id/drawer_about"
+        android:title="@string/drawer_about"
+        android:icon="@drawable/ic_about" />
+
+    <item
+        android:id="@+id/drawer_share"
+        android:title="@string/drawer_share"
+        android:icon="@drawable/ic_share" />
+
+    <item
+        android:id="@+id/drawer_exit"
+        android:title="@string/drawer_exit"
+        android:icon="@drawable/ic_exit" />
+</menu>

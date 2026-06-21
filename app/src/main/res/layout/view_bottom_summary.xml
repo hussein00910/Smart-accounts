@@ -1,131 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_summary_height"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp"
-    android:elevation="8dp"
-    app:cardCornerRadius="16dp"
-    app:cardBackgroundColor="@color/brand_primary">
+    android:background="@drawable/bottom_summary_background"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="@dimen/spacing_l"
+    android:paddingEnd="@dimen/spacing_l">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/spacing_l"
-        android:paddingEnd="@dimen/spacing_l">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <!-- You Owe Section -->
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/textYouOwe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            tools:text="26,124" />
 
-            <TextView
-                android:id="@+id/textYouOwe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:shadowColor="@color/shadow_color"
-                android:shadowDx="0"
-                android:shadowDy="2"
-                android:shadowRadius="2"
-                tools:text="26,124" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_you_owe"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:alpha="0.9" />
-        </LinearLayout>
-
-        <!-- Divider -->
-        <View
-            android:layout_width="1dp"
-            android:layout_height="36dp"
-            android:background="@color/white"
-            android:alpha="0.4"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp" />
-
-        <!-- Owed To You Section -->
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textOwedToYou"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:shadowColor="@color/shadow_color"
-                android:shadowDx="0"
-                android:shadowDy="2"
-                android:shadowRadius="2"
-                tools:text="11,793" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_owed_to_you"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:alpha="0.9" />
-        </LinearLayout>
-
-        <!-- Divider -->
-        <View
-            android:layout_width="1dp"
-            android:layout_height="36dp"
-            android:background="@color/white"
-            android:alpha="0.4"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp" />
-
-        <!-- Currency Section -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textLocalCurrencyLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/currency_local"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:shadowColor="@color/shadow_color"
-                android:shadowDx="0"
-                android:shadowDy="2"
-                android:shadowRadius="2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_currency"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:alpha="0.9" />
-        </LinearLayout>
-
+            android:text="@string/label_you_owe"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="32dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textOwedToYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
+            tools:text="11,793" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_owed_to_you"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="32dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textLocalCurrencyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_local"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_currency"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+*.iml
+.gradle/
+/local.properties
+.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Gradle wrapper jar must stay committed; only ignore Gradle's own caches/output above.
+
+# Keystores and signing material must never be committed
+*.jks
+*.keystore
+keystore.properties
+
+# Build outputs
+app/build/
+app/release/

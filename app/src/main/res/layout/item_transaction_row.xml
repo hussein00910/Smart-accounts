@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/spacing_m"
+    android:paddingEnd="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_s"
+    android:paddingBottom="@dimen/spacing_s">
+
+    <ImageView
+        android:id="@+id/imageArrow"
+        android:layout_width="@dimen/row_icon_size"
+        android:layout_height="@dimen/row_icon_size"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@drawable/ic_arrow_up" />
+
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:textSize="@dimen/text_size_amount"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imageArrow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="5,813" />
+
+    <TextView
+        android:id="@+id/textAccountName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/text_primary"
+        app:layout_constraintStart_toEndOf="@id/textAmount"
+        app:layout_constraintEnd_toStartOf="@id/textDate"
+        app:layout_constraintTop_toTopOf="@id/textAmount"
+        tools:text="حساب 1" />
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/text_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="21-06-2026" />
+
+    <TextView
+        android:id="@+id/textDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/text_secondary"
+        app:layout_constraintStart_toStartOf="@id/textAccountName"
+        app:layout_constraintEnd_toStartOf="@id/textCurrencyBadge"
+        app:layout_constraintTop_toBottomOf="@id/textAccountName"
+        tools:text="دفعة جزئية" />
+
+    <TextView
+        android:id="@+id/textCurrencyBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/badge_size"
+        android:layout_marginStart="@dimen/spacing_s"
+        android:background="@drawable/badge_circle_background"
+        android:gravity="center"
+        android:paddingStart="@dimen/spacing_s"
+        android:paddingEnd="@dimen/spacing_s"
+        android:textColor="@color/brand_primary_dark"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDate"
+        tools:text="SAR" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDetails"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

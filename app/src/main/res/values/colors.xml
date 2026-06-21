@@ -1,45 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Brand Colors - Modern Elegant Blue -->
-    <color name="brand_primary">#5E72E4</color>
-    <color name="brand_primary_dark">#2D3436</color>
-    <color name="brand_primary_light">#ECF0FF</color>
-    
-    <!-- Semantic Colors -->
-    <color name="credit_green">#10B981</color>
-    <color name="credit_green_light">#D1FAE5</color>
-    <color name="debit_red">#EF4444</color>
-    <color name="debit_red_light">#FEE2E2</color>
-    <color name="badge_blue">#00BCD4</color>
-    
-    <!-- Backgrounds & Surfaces -->
+    <color name="brand_primary">#3949AB</color>
+    <color name="brand_primary_dark">#2C3690</color>
+    <color name="credit_green">#43A047</color>
+    <color name="debit_red">#E53935</color>
+    <color name="badge_blue">#1E88E5</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="background_light">#F8FAFC</color>
+    <color name="background_light">#F5F5F7</color>
     <color name="surface_light">#FFFFFF</color>
-    <color name="text_primary">#0F172A</color>
-    <color name="text_secondary">#64748B</color>
-    <color name="divider">#E2E8F0</color>
-    
-    <!-- Dark Mode -->
-    <color name="background_dark">#0F172A</color>
-    <color name="surface_dark">#1E293B</color>
-    <color name="text_dark_primary">#F1F5F9</color>
-    <color name="text_dark_secondary">#94A3B8</color>
-    
-    <!-- Extended Color Palette -->
-    <color name="success_500">#10B981</color>
-    <color name="success_600">#059669</color>
-    <color name="warning_500">#F59E0B</color>
-    <color name="warning_light">#FEF3C7</color>
-    <color name="danger_500">#EF4444</color>
-    <color name="danger_600">#DC2626</color>
-    <color name="accent_teal">#06B6D4</color>
-    <color name="accent_purple">#8B5CF6</color>
-    <color name="accent_indigo">#6366F1</color>
-    <color name="accent_pink">#EC4899</color>
-    
-    <!-- Shadow/Overlay Colors -->
-    <color name="shadow_color">#000000</color>
-    <color name="overlay_dark">#00000033</color>
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#6B6B6B</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="tab_text_on_primary">#B3FFFFFF</color>
+
+    <!-- Accent palette for distinct icon "landmarks" across drawer/settings -->
+    <color name="accent_pink">#E91E63</color>
+    <color name="badge_light_blue">#90CAF9</color>
+    <color name="icon_purple">#7E57C2</color>
+    <color name="icon_teal">#00897B</color>
+    <color name="icon_orange">#FB8C00</color>
+    <color name="icon_gold">#F9A825</color>
+    <color name="drive_green">#0F9D58</color>
 </resources>
