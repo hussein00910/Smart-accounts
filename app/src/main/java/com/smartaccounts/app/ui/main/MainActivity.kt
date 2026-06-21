@@ -23,6 +23,10 @@ import com.smartaccounts.app.ui.addtransaction.AddTransactionActivity
 import com.smartaccounts.app.ui.backup.BackupActivity
 import com.smartaccounts.app.ui.backup.RestoreActivity
 import com.smartaccounts.app.ui.common.ComingSoonActivity
+import com.smartaccounts.app.ui.reports.AccountsReportActivity
+import com.smartaccounts.app.ui.reports.AccountsReportMode
+import com.smartaccounts.app.ui.reports.TransactionsReportActivity
+import com.smartaccounts.app.ui.reports.TransactionsReportMode
 import com.smartaccounts.app.ui.settings.SettingsActivity
 import kotlinx.coroutines.launch
 
@@ -126,18 +130,22 @@ class MainActivity : AppCompatActivity() {
     private fun handleDrawerItem(item: MenuItem) {
         when (item.itemId) {
             R.id.drawer_add_transaction -> openAddTransaction(null)
-            R.id.drawer_report_general -> openComingSoon(R.string.drawer_report_general, R.drawable.ic_report)
-            R.id.drawer_report_by_date -> openComingSoon(R.string.drawer_report_by_date, R.drawable.ic_report)
-            R.id.drawer_report_by_account -> openComingSoon(R.string.drawer_report_by_account, R.drawable.ic_report)
-            R.id.drawer_report_debts -> openComingSoon(R.string.drawer_report_debts, R.drawable.ic_report)
-            R.id.drawer_report_balances -> openComingSoon(R.string.drawer_report_balances, R.drawable.ic_report)
+            R.id.drawer_report_general -> TransactionsReportActivity.start(this, TransactionsReportMode.GENERAL)
+            R.id.drawer_report_by_date -> TransactionsReportActivity.start(this, TransactionsReportMode.BY_DATE)
+            R.id.drawer_report_by_account -> TransactionsReportActivity.start(this, TransactionsReportMode.BY_ACCOUNT)
+            R.id.drawer_report_debts -> AccountsReportActivity.start(this, AccountsReportMode.DEBTS)
+            R.id.drawer_report_balances -> AccountsReportActivity.start(this, AccountsReportMode.BALANCES)
             R.id.drawer_auto_recurrence -> openComingSoon(R.string.drawer_auto_recurrence, R.drawable.ic_recurrence)
             R.id.drawer_backup -> startActivity(Intent(this, BackupActivity::class.java))
             R.id.drawer_restore -> startActivity(Intent(this, RestoreActivity::class.java))
             R.id.drawer_google_drive -> openComingSoon(R.string.drawer_google_drive, R.drawable.ic_drive)
             R.id.drawer_settings -> startActivity(Intent(this, SettingsActivity::class.java))
-            R.id.drawer_contact_support -> openComingSoon(R.string.drawer_contact_support, R.drawable.ic_support)
-            R.id.drawer_about -> openComingSoon(R.string.drawer_about, R.drawable.ic_about)
+            R.id.drawer_contact_support -> ComingSoonActivity.start(
+                this, getString(R.string.drawer_contact_support), R.drawable.ic_support, getString(R.string.message_contact_support)
+            )
+            R.id.drawer_about -> ComingSoonActivity.start(
+                this, getString(R.string.drawer_about), R.drawable.ic_about, getString(R.string.message_about)
+            )
             R.id.drawer_share -> shareApp()
             R.id.drawer_exit -> finishAffinity()
         }

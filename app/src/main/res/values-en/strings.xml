@@ -88,5 +88,16 @@
     <string name="title_coming_soon">Coming soon</string>
     <string name="message_coming_soon">This feature is under development and will be available soon</string>
 
+    <string name="message_about">Smart Accounts is a smart ledger that helps you record transactions and track debts and balances with ease, with backup and restore available anytime.</string>
+    <string name="message_contact_support">For any questions or support, feel free to reach us by email:\nBintalebb2024@gmail.com</string>
+
+    <string name="report_filter_choose_date_range">Choose date range</string>
+    <string name="report_filter_choose_account">Choose account</string>
+    <string name="report_total_credit">Total credit</string>
+    <string name="report_total_debit">Total debit</string>
+    <string name="report_transactions_empty_message">No transactions to display</string>
+    <string name="report_accounts_empty_message">No accounts to display</string>
+    <string name="report_date_range_display">%1$s - %2$s</string>
+
     <string name="action_back">Back</string>
 </resources>

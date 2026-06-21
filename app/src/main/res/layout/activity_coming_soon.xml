@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_m"
             android:gravity="center"
+            android:autoLink="email"
             android:text="@string/message_coming_soon"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/text_size_title" />

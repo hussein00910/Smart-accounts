@@ -12,3 +12,8 @@ data class SummaryTotalsRow(
     val totalYouOwe: Double,
     val totalOwedToYou: Double
 )
+
+data class AccountOption(
+    val id: Long,
+    val name: String
+)

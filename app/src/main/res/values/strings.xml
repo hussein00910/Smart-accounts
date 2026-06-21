@@ -98,6 +98,19 @@
     <string name="title_coming_soon">قريباً</string>
     <string name="message_coming_soon">هذه الميزة قيد التطوير وستتوفر قريباً</string>
 
+    <!-- About / Contact support -->
+    <string name="message_about">سمارت أكاونتس هو دفتر حسابات ذكي يساعدك على تسجيل المعاملات وتتبع الديون والأرصدة بسهولة، مع نسخ احتياطي واسترجاع للبيانات في أي وقت.</string>
+    <string name="message_contact_support">لأي استفسار أو دعم فني، يسعدنا تواصلك معنا عبر البريد الإلكتروني:\nBintalebb2024@gmail.com</string>
+
+    <!-- Reports -->
+    <string name="report_filter_choose_date_range">اختر نطاق التاريخ</string>
+    <string name="report_filter_choose_account">اختر حساب</string>
+    <string name="report_total_credit">إجمالي له</string>
+    <string name="report_total_debit">إجمالي عليه</string>
+    <string name="report_transactions_empty_message">لا توجد معاملات لعرضها</string>
+    <string name="report_accounts_empty_message">لا توجد حسابات لعرضها</string>
+    <string name="report_date_range_display">%1$s - %2$s</string>
+
     <!-- Common -->
     <string name="action_back">رجوع</string>
 </resources>

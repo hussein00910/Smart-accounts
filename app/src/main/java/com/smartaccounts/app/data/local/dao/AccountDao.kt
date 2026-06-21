@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.smartaccounts.app.data.local.entity.AccountEntity
+import com.smartaccounts.app.data.local.model.AccountOption
 import com.smartaccounts.app.data.local.model.AccountWithStats
 import com.smartaccounts.app.data.local.model.SummaryTotalsRow
 import com.smartaccounts.app.domain.model.AccountCategory
@@ -34,6 +35,9 @@ interface AccountDao {
 
     @Query("SELECT name FROM accounts ORDER BY name COLLATE NOCASE")
     suspend fun getAllAccountNames(): List<String>
+
+    @Query("SELECT id, name FROM accounts ORDER BY name COLLATE NOCASE")
+    suspend fun getAllAccountOptions(): List<AccountOption>
 
     @Query("SELECT * FROM accounts ORDER BY name COLLATE NOCASE")
     fun observeAllAccounts(): Flow<List<AccountEntity>>
@@ -65,6 +69,29 @@ interface AccountDao {
     )
     fun observeAccountsWithStats(category: AccountCategory): Flow<List<AccountWithStats>>
 
+    /** Same aggregation as [observeAccountsWithStats], without the category filter. */
+    @Query(
+        """
+        SELECT
+          a.id            AS id,
+          a.name          AS name,
+          a.sortOrder     AS sortOrder,
+          COUNT(t.id)     AS transactionCount,
+          COALESCE(SUM(
+            CASE
+              WHEN t.currency = 'LOCAL' AND t.type = 'CREDIT' THEN t.amount
+              WHEN t.currency = 'LOCAL' AND t.type = 'DEBIT'  THEN -t.amount
+              ELSE 0
+            END
+          ), 0.0)         AS netLocalBalance
+        FROM accounts a
+        LEFT JOIN transactions t ON t.accountId = a.id
+        GROUP BY a.id
+        ORDER BY a.name COLLATE NOCASE
+        """
+    )
+    fun observeAllAccountsWithStats(): Flow<List<AccountWithStats>>
+
     /**
      * "عليك" (you owe) = sum of all positive (creditor) per-account balances.
      * "لك" (you're owed) = sum of all negative (debtor) per-account balances, as a magnitude.
@@ -91,4 +118,27 @@ interface AccountDao {
         """
     )
     fun observeSummaryTotals(category: AccountCategory): Flow<SummaryTotalsRow>
+
+    /** Same aggregation as [observeSummaryTotals], without the category filter. */
+    @Query(
+        """
+        SELECT
+          COALESCE(SUM(CASE WHEN net > 0 THEN net ELSE 0 END), 0.0)  AS totalYouOwe,
+          COALESCE(SUM(CASE WHEN net < 0 THEN -net ELSE 0 END), 0.0) AS totalOwedToYou
+        FROM (
+          SELECT a.id,
+            COALESCE(SUM(
+              CASE
+                WHEN t.currency = 'LOCAL' AND t.type = 'CREDIT' THEN t.amount
+                WHEN t.currency = 'LOCAL' AND t.type = 'DEBIT'  THEN -t.amount
+                ELSE 0
+              END
+            ), 0.0) AS net
+          FROM accounts a
+          LEFT JOIN transactions t ON t.accountId = a.id
+          GROUP BY a.id
+        )
+        """
+    )
+    fun observeAllSummaryTotals(): Flow<SummaryTotalsRow>
 }

@@ -37,6 +37,10 @@
 
         <activity android:name=".ui.common.ComingSoonActivity" />
 
+        <activity android:name=".ui.reports.TransactionsReportActivity" />
+
+        <activity android:name=".ui.reports.AccountsReportActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.smartaccounts.app.fileprovider"
